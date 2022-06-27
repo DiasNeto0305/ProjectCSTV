@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Partidas</string>
+    <string name="indefinido">Indefinido</string>
+    <string name="logo_do_time">Logo do Time</string>
+    <string name="vs">Vs</string>
+    <string name="foto_player">Foto Player</string>
+</resources>
