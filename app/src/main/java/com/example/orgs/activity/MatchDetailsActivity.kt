@@ -13,7 +13,6 @@ import com.example.orgs.recyclerview.adapter.ListaTeam2PlayersAdapter
 import com.example.orgs.viewmodel.DetailsViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import java.text.SimpleDateFormat
-import java.util.*
 
 class MatchDetailsActivity : AppCompatActivity(R.layout.activity_match_details) {
 

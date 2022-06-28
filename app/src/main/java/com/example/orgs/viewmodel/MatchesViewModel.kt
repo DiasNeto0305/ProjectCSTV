@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PartidasViewModel : ViewModel() {
+class MatchesViewModel : ViewModel() {
 
     val partidasLiveData: MutableLiveData<List<Match>> = MutableLiveData()
 

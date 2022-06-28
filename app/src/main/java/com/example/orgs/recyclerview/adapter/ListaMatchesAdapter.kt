@@ -15,10 +15,10 @@ import com.example.orgs.model.match.Match
 import java.text.SimpleDateFormat
 
 
-class ListaProdutosAdapter(
+class ListaMatchesAdapter(
     private val context: Context,
-    private val partidas: List<Match>
-) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
+    private val matches: List<Match>
+) : RecyclerView.Adapter<ListaMatchesAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun vincula(partida: Match) {
@@ -29,13 +29,13 @@ class ListaProdutosAdapter(
             val gameTime = timestamp[1].substring(0, 5)
             val scheduledAt = itemView.findViewById<TextView>(R.id.textTime)
             scheduledAt.text = "$gameDateFormat, $gameTime"
-            val nome = itemView.findViewById<TextView>(R.id.nome)
+            val nome = itemView.findViewById<TextView>(R.id.detailsText)
             val serieName = partida.serie.name ?: ""
             val leagueName = partida.league.name ?: ""
             nome.text = "$serieName | $leagueName"
-            val descricao = itemView.findViewById<TextView>(R.id.descricao)
+            val descricao = itemView.findViewById<TextView>(R.id.team2Name)
             descricao.text = if (partida.opponents.size > 1) partida.opponents[1].opponent.name else "Indefinido"
-            val valor = itemView.findViewById<TextView>(R.id.valor)
+            val valor = itemView.findViewById<TextView>(R.id.team1Name)
             valor.text = if (partida.opponents.isNotEmpty()) partida.opponents[0].opponent.name else "Indefinido"
             val teamLogo = itemView.findViewById<ImageView>(R.id.teamlogo)
             val teamLogo2 = itemView.findViewById<ImageView>(R.id.teamlogo2)
@@ -55,7 +55,7 @@ class ListaProdutosAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val partida = partidas[position]
+        val partida = matches[position]
         holder.vincula(partida)
         if (partida.opponents.size > 1) {
             holder.itemView.setOnClickListener {
@@ -66,7 +66,7 @@ class ListaProdutosAdapter(
         }
     }
 
-    override fun getItemCount(): Int = partidas.size
+    override fun getItemCount(): Int = matches.size
 
 
 }

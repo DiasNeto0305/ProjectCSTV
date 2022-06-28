@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.orgs.recyclerview.adapter.ListaProdutosAdapter
-import com.example.orgs.viewmodel.PartidasViewModel
+import com.example.orgs.recyclerview.adapter.ListaMatchesAdapter
+import com.example.orgs.viewmodel.MatchesViewModel
 import com.google.android.material.appbar.MaterialToolbar
 
 
@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         val appBar = findViewById<MaterialToolbar>(R.id.topAppBar)
         appBar.title = "Partidas"
-        val viewModel: PartidasViewModel = ViewModelProvider(this).get(PartidasViewModel::class.java)
+        val viewModel: MatchesViewModel = ViewModelProvider(this).get(MatchesViewModel::class.java)
         viewModel.partidasLiveData.observe(this) {
-            it?.let { partidas ->
-                val recyclerView = findViewById<RecyclerView>(R.id.listaPartidas)
-                recyclerView.adapter = ListaProdutosAdapter(this, partidas)
+            it?.let { matches ->
+                val recyclerView = findViewById<RecyclerView>(R.id.listaMatches)
+                recyclerView.adapter = ListaMatchesAdapter(this, matches)
             }
         }
 
